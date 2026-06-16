@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: yiwu-postgres
+    environment:
+      POSTGRES_USER: yiwu
+      POSTGRES_PASSWORD: yiwu123
+      POSTGRES_DB: yiwu_mall
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: yiwu-redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  pgdata:
